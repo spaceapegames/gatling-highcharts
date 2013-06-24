@@ -70,5 +70,14 @@ ${series.elements.mkFastring(",")}
 ${marker.map(m => s", marker: { $m }").getOrElse("")}
 """
 
+	def renderValueOverTimeSeries(series: ValueOverTimeSeries, marker: Option[String]) = fast"""
+color: '${series.colors(0)}'
+, name: '${series.name}'
+, data: [
+${series.elements.mkFastring(",")}
+]
+${marker.map(m => s", marker: { $m }").getOrElse("")}
+"""
+
 	def renderNumberPerSecondSeries(serie: NumberPerSecondSeries) = Template.renderNumberPerSecondSeries(serie)
 }
